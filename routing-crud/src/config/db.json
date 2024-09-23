@@ -11,27 +11,24 @@
       "address": "dfgdfg"
     },
     {
-      "id": "c5e6",
-      "username": "Kunal",
-      "email": "kunal@gmail.com",
-      "password": "123",
+      "id": "7dca",
+      "username": "Dhaval",
+      "email": "dhaval@gmail.com",
+      "password": "sferatr5t",
       "gender": "male",
       "hobby": "Dance",
       "city": "surat",
-      "address": "dfgdfg"
+      "address": "sfgdf"
     },
     {
-      "id": "faa1",
-      "username": "Dhaval"
-    },
-    {
-      "id": "1ba1"
-    },
-    {
-      "id": "725f"
-    },
-    {
-      "id": "ba24"
+      "id": "cbe9",
+      "username": "Ramesh",
+      "email": "ramesh@gmail.com",
+      "password": "1234",
+      "gender": "male",
+      "hobby": "Dance",
+      "city": "surat",
+      "address": "abc app"
     }
   ],
   "admin": [],

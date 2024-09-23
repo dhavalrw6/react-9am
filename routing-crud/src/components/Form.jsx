@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -29,7 +30,7 @@ function Form() {
     let handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:3004/user', {
+        fetch('http://localhost:3000/user', {
             method: 'POST',
             body: JSON.stringify(data)
         }).then(() => {
@@ -46,6 +47,7 @@ function Form() {
                 <table align='center' border={1}>
                     <caption>
                         <h2>Add User Data</h2>
+                        <Link to="/userRecode">View Recode</Link>
                     </caption>
                     <tbody>
                         <tr>
