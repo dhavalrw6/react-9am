@@ -1,34 +1,14 @@
 {
   "user": [
     {
-      "id": "22fc",
+      "id": "c0ef",
       "username": "Dhaval",
       "email": "dhaval@gmail.com",
       "password": "sferatr5t",
       "gender": "male",
       "hobby": "Dance",
       "city": "surat",
-      "address": "dfgdfg"
-    },
-    {
-      "id": "7dca",
-      "username": "Dhaval",
-      "email": "dhaval@gmail.com",
-      "password": "sferatr5t",
-      "gender": "male",
-      "hobby": "Dance",
-      "city": "surat",
-      "address": "sfgdf"
-    },
-    {
-      "id": "cbe9",
-      "username": "Ramesh",
-      "email": "ramesh@gmail.com",
-      "password": "1234",
-      "gender": "male",
-      "hobby": "Dance",
-      "city": "surat",
-      "address": "abc app"
+      "address": "afsfg"
     }
   ],
   "admin": [],

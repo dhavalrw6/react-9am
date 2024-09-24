@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Form() {
+function EditData(props) {
+    console.log(props.user);
 
     let [data, setData] = useState({});
     let [hobby, setHobby] = useState([]);
@@ -21,7 +22,6 @@ function Form() {
                 ho.splice(pos, 1);
             }
             console.log(ho);
-
         }
         setHobby(ho);
         setData({ ...data, [name]: value });
@@ -120,4 +120,4 @@ function Form() {
     )
 }
 
-export default Form
+export default EditData
