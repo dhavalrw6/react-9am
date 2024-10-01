@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": "8575",
+      "title": "book",
+      "price": "48",
+      "url": "https://media.istockphoto.com/id/173015527/photo/a-single-red-book-on-a-white-surface.jpg?s=612x612&w=0&k=20&c=AeKmdZvg2_bRY2Yct7odWhZXav8CgDtLMc_5_pjSItY="
+    },
+    {
+      "id": "da75",
+      "title": "oppo",
+      "price": "12999",
+      "url": "https://m.media-amazon.com/images/I/81Tx+kozw2L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": "b636",
+      "url": "https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/reno12-f-4g-en/listpage/427-600-grey.png.thumb.webp",
+      "title": "OPPO Find N3",
+      "price": "24999"
+    },
+    {
+      "id": "24c5",
+      "title": "Mi",
+      "price": "234500",
+      "url": "https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/reno-12-pro-en/listpage/427-600-silver.png"
+    },
+    {
+      "id": "79aa",
+      "title": "abc",
+      "price": "32000",
+      "url": "https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/find-n3-flip-en/listpage/find-n3-flip-427_600-gold.png"
+    }
+  ]
+}

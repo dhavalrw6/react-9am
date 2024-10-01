@@ -10,17 +10,18 @@ function UserRecode() {
     }, [])
 
     let fetchRecode = () => {
-
-        fetch("http://localhost:3000/user", {
-            method: 'GET'
-        }).then(async (res) => {
-            let data = await res.json();
-            console.log(data);
+        fetch('http://localhost:3000/user', {
+            method: 'get'
+        }).then((res) => {
+            console.log(res);
+            return res.json();
+        }).then((data) => {
             setUsers(data);
-        }).catch((err) => {
-            console.log(err);
+        }).catch((error) => {
+            console.error(error);
         })
     }
+    
 
     let deleteData = (id) => {
         fetch(`http://localhost:3000/user/${id}`, {
@@ -33,8 +34,8 @@ function UserRecode() {
         })
     }
 
-    let EditData = (user) => {
-        navigator('/edit');
+    let editData = (id) => {
+        navigator(`/edit/${id}`);
     }
 
     return (
@@ -66,11 +67,12 @@ function UserRecode() {
                                 <td>{user.email}</td>
                                 <td>{user.password}</td>
                                 <td>{user.gender}</td>
-                                <td>{user.hobby}</td>
+                                <td>{user.hobby.toString() || ''}</td>
                                 <td>{user.city}</td>
                                 <td>{user.address}</td>
                                 <td>
                                     <button onClick={() => deleteData(user.id)}>Delete</button>
+                                    <button onClick={() => editData(user.id)}>Edit</button>
                                 </td>
                             </tr>
                         ))

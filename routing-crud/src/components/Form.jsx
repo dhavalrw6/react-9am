@@ -21,7 +21,7 @@ function Form() {
                 ho.splice(pos, 1);
             }
             console.log(ho);
-
+            value = ho
         }
         setHobby(ho);
         setData({ ...data, [name]: value });
@@ -31,17 +31,13 @@ function Form() {
         e.preventDefault();
 
         fetch('http://localhost:3000/user', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify(data)
         }).then(() => {
-            toast.success("Data Add..");
-
-            setTimeout(() => {
-                navigator('/userRecode');
-            }, 1000)
-
+            alert("Data Added.")
+            
         }).catch((err) => {
-            toast.error(err);
+            console.error(err);
         })
 
     }
