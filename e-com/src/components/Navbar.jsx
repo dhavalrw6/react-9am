@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
-function Navbar() {
+function Navbar({ count }) {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,8 +23,10 @@ function Navbar() {
                             </li>
                         </ul>
                         <div className="">
-                            <FaCartShopping fontSize={24} />
-                            <sup>{4}</sup>
+                            <Link to='/cart' className='text-dark text-decoration-none'>
+                                <FaCartShopping fontSize={24} />
+                                <sup>{count}</sup>
+                            </Link>
                         </div>
                     </div>
                 </div>

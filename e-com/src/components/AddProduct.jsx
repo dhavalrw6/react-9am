@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
-function AddProduct() {
+function AddProduct({ handlePost }) {
 
     let [product, setProduct] = useState({});
 
@@ -12,19 +12,11 @@ function AddProduct() {
 
     let handleSubmit = (e) => {
         e.preventDefault();
-        handlePost();
+        handlePost(product);
         setProduct({});
     }
 
-    let handlePost = async () => {
-        try {
-            let res = await axios.post('http://localhost:3000/products', product);
-            console.log(res);
-            console.log("Data added..");
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    
 
     return (
         <>

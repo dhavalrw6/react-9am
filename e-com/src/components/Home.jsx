@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 
-function Home({ products }) {
+function Home({ products, cartProduct }) {
     let [productList, setProductList] = useState([]);
 
 
@@ -22,7 +22,12 @@ function Home({ products }) {
                                     <div className="card-body">
                                         <h5 className="card-title">{product.title}</h5>
                                         <p className="card-text">Rs. {product.price}</p>
-                                        <button className="btn btn-primary">Add To Cart</button>
+                                        <button 
+                                            className="btn btn-primary"
+                                            onClick={() => cartProduct(index)}
+                                        >
+                                            Add To Cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>
