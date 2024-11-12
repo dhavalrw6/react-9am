@@ -4,14 +4,15 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDBROzkZ1hM0Q7YZXfirAg-n1V_9syfsHc",
-    authDomain: "my-03firebase.firebaseapp.com",
-    projectId: "my-03firebase",
-    storageBucket: "my-03firebase.firebasestorage.app",
-    messagingSenderId: "363297406236",
-    appId: "1:363297406236:web:c61ee67c5c542c910fced9",
-    databaseURL: "https://my-03firebase-default-rtdb.firebaseio.com/"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL
 };
 
 // Initialize Firebase
