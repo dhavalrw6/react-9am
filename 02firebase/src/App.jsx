@@ -1,14 +1,20 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createPost } from "./features/post/postSlice";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createPost, deletePost, fetchPost } from "./features/post/postSlice";
 
 function App() {
   const [post, setPost] = useState({});
   const dispatch = useDispatch();
+  const { posts, error, loading } = useSelector((state) => state.post);
+
   let handleInput = (e) => {
     let { name, value } = e.target;
     setPost({ ...post, [name]: value });
   };
+
+  useEffect(() => {
+    dispatch(fetchPost());
+  }, []);
 
   let handleSubmit = (e) => {
     e.preventDefault();
@@ -46,6 +52,27 @@ function App() {
           </button>
         </form>
       </div>
+
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Discription</th>
+        </tr>
+        {posts.map((post) => (
+          <tr key={post.id}>
+            <td>{post.title}</td>
+            <td>{post.discription}</td>
+            <td>
+              <button
+                className="btn btn-dark"
+                onClick={() => dispatch(deletePost(post.id))}
+              >
+                delete
+              </button>
+            </td>
+          </tr>
+        ))}
+      </table>
     </>
   );
 }
