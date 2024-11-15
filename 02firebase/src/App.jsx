@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, deletePost, fetchPost } from "./features/post/postSlice";
+import { createPost, editPost } from "./features/post/postSlice";
+import View_post from "./components/View_post";
 
 function App() {
   const [post, setPost] = useState({});
   const dispatch = useDispatch();
-  const { posts, error, loading } = useSelector((state) => state.post);
+  const [editId, setEditId] = useState("");
+
+  let handleEdit = (post) => {
+    setPost(post);
+    setEditId(post.id);
+  };
 
   let handleInput = (e) => {
     let { name, value } = e.target;
     setPost({ ...post, [name]: value });
   };
 
-  useEffect(() => {
-    dispatch(fetchPost());
-  }, []);
-
   let handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createPost(post));
+
+    if (editId == "") {
+      dispatch(createPost(post));
+    } else {
+      dispatch(editPost(post));
+    }
+    setPost({});
   };
 
   return (
@@ -33,6 +41,7 @@ function App() {
               type="text"
               className="form-control"
               name="title"
+              value={post.title || ""}
               onChange={handleInput}
             />
           </div>
@@ -43,7 +52,8 @@ function App() {
             <input
               type="text"
               className="form-control"
-              name="discription"
+              name="description"
+              value={post.description || ""}
               onChange={handleInput}
             />
           </div>
@@ -51,28 +61,9 @@ function App() {
             Submit
           </button>
         </form>
-      </div>
 
-      <table>
-        <tr>
-          <th>Title</th>
-          <th>Discription</th>
-        </tr>
-        {posts.map((post) => (
-          <tr key={post.id}>
-            <td>{post.title}</td>
-            <td>{post.discription}</td>
-            <td>
-              <button
-                className="btn btn-dark"
-                onClick={() => dispatch(deletePost(post.id))}
-              >
-                delete
-              </button>
-            </td>
-          </tr>
-        ))}
-      </table>
+        <View_post handleEdit={handleEdit} />
+      </div>
     </>
   );
 }

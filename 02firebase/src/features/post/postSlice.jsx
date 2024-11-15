@@ -11,7 +11,7 @@ export const createPost = createAsyncThunk(
   "posts/createPost",
   async (newPost, { rejectWithValue }) => {
     try {
-      let res = apiInstance.post("/.json", newPost);
+      let res = await apiInstance.post("/.json", newPost);
       return { id: res.data.name, ...newPost };
     } catch (error) {
       return rejectWithValue(error.message);
@@ -47,6 +47,22 @@ export const deletePost = createAsyncThunk(
   }
 );
 
+export const editPost = createAsyncThunk(
+  "posts/editPost",
+  async (post, { rejectWithValue }) => {
+    try {
+      let obj = {
+        title: post.title,
+        description: post.description,
+      };
+      await apiInstance.put(`/${post.id}.json`, obj);
+      return post;
+    } catch (error) {
+      rejectWithValue(error.message);
+    }
+  }
+);
+
 const postSlice = createSlice({
   name: "posts",
   initialState,
@@ -76,10 +92,21 @@ const postSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(deletePost.fulfilled, (state,action) => {
-        state.posts = state.posts.filter(post => post.id !== action.payload);
+      .addCase(deletePost.fulfilled, (state, action) => {
+        state.posts = state.posts.filter((post) => post.id !== action.payload);
       })
+      .addCase(editPost.fulfilled, (state, action) => {
+        state.posts = state.posts.filter((post) => {
+          let { id, title, description } = action.payload;
+          if (post.id == id) {
+            post.title = title;
+            post.description = description;
+          }
+          return post;
+        });
+      });
   },
 });
 
 export default postSlice.reducer;
+export const { handleEdit, handleCancel } = postSlice.actions;
