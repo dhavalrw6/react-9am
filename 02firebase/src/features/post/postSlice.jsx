@@ -42,7 +42,7 @@ export const deletePost = createAsyncThunk(
       await apiInstance.delete(`/${id}.json`);
       return id;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -83,6 +83,7 @@ const postSlice = createSlice({
       })
       .addCase(fetchPost.pending, (state, action) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(fetchPost.fulfilled, (state, action) => {
         state.loading = false;

@@ -11,6 +11,9 @@ function View_post({ handleEdit }) {
     dispatch(fetchPost());
   }, [dispatch]);
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+
   return (
     <>
       <div className="row mt-3 justify-content-center">
@@ -28,7 +31,12 @@ function View_post({ handleEdit }) {
                 >
                   Delete
                 </button>
-                <button onClick={() => handleEdit(post)}>Edit</button>
+                <button
+                  className="btn btn-dark ms-2"
+                  onClick={() => handleEdit(post)}
+                >
+                  Edit
+                </button>
               </div>
             </div>
           </div>
